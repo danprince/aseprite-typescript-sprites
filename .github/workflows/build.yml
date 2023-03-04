@@ -18,6 +18,3 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "typescript-sprites.aseprite-extension"
-      - run: |
-          echo "# ${{  github.ref_name }}"
-          echo "Created release: ${{steps.release.outputs.html_url}}" >> $GITHUB_STEP_SUMMARY
