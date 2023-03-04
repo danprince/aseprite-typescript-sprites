@@ -9,6 +9,8 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v3
       - run: zip -r typescript-sprites.aseprite-extension typescript-sprites.{lua,aseprite-keys}
