@@ -10,9 +10,12 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: zip -r typescript-sprites.aseprite-extension typescript-sprites.{lua,aseprite-keys}
-      - uses: actions/upload-artifact@v3
+      - id: release
+        uses: ncipollo/release-action@v1
         with:
-          name: typescript-sprites
-          path: typescript-sprites.aseprite-extension
+          artifacts: "typescript-sprites.aseprite-extension"
+      - run: |
+          echo "# ${{  github.ref_name }}"
+          echo "Created release: ${{steps.release.outputs.html_url}}" >> $GITHUB_STEP_SUMMARY
