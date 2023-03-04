@@ -1,4 +1,4 @@
-local reservedWords = { "break", "case", "catch", "class", "const", "continue", "debugger", "default", "delete", "do", "else", "export", "extends", "false", "finally", "for", "function", "if", "import", "in", "instanceof", "new", "null", "return", "super", "switch", "this", "throw", "true", "try", "typeof", "var", "void", "while", "with", "let", "static", "yield", "await" }
+local reservedWords = { "case", "catch", "class", "const", "continue", "debugger", "default", "delete", "do", "else", "enum", "export", "extends", "false", "finally", "for", "function", "if", "import", "in", "instanceof", "new", "null", "return", "super", "switch", "this", "throw", "true", "try", "typeof", "var", "void", "while", "with", "as", "implements", "interface", "let", "package", "private", "protected", "public", "static", "yield" }
 
 -- Format a Lua table as a JavaScript object literal
 local function formatTable(table)
@@ -13,7 +13,7 @@ local function formatTable(table)
   return str .. "}"
 end
 
--- Format a string so that it is a valid JavaScript variable identifier.
+-- Format a string so that it is a valid TypeScript variable identifier.
 local function formatVariableName(str)
   -- variable names cannot contain spaces (replace with underscores)
   local name = string.gsub(str, " ", "_")
@@ -72,7 +72,7 @@ local function exportSpriteSheet(spr)
       }
     end
 
-    if slice.data then
+    if slice.data ~= "" then
       props.data = '"' .. slice.data .. '"'
     end
 
