@@ -33,6 +33,7 @@ sprites.imp
 <details>
 <summary>Aseprite already supports a JSON export, but it's awkward to consume.
 </summary>
+   
 ```json
 { "frames": {
    "sprites.aseprite": {
